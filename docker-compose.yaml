@@ -1,4 +1,4 @@
-version: "3.9" # New version update 
+
 services:
   mongodb:
     container_name: mongo
