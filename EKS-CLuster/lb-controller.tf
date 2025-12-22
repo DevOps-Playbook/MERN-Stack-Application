@@ -102,5 +102,6 @@ resource "helm_release" "lb_controller" {
   depends_on = [
     aws_eks_cluster.eks_cluster,
     aws_iam_role_policy_attachment.lb_controller_attach
+    aws_eks_node_group.worker_node_group
   ]
 }
