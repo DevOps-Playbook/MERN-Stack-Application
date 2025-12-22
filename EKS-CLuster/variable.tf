@@ -1,7 +1,7 @@
 variable "aws_region" {
   description = "The AWS region to deploy resources"
   type        = string
-  default     = "us-east-1"
+  default     = "ap-south-1"
 
 }
 variable "project_name" {
@@ -17,13 +17,13 @@ variable "cluster_name" {
 variable "instance_types" {
   description = "List of instance types for the EKS node group"
   type        = list(string)
-  default     = ["t2.medium"]
+  default     = ["t2.large"]
 
 }
 variable "azs" {
   description = "List of availability zones to use for the VPC"
   type        = list(string)
-  default     = ["us-east-1a", "us-east-1b"]
+  default     = ["ap-south-1a", "ap-south-1b"]
 }
 variable "vpc_cidr" {
   description = "CIDR block for the VPC"
