@@ -1,11 +1,9 @@
-# csi-driver.tf
-
-# 1. Get the official AWS EBS Driver Policy
+# Get the official AWS EBS Driver Policy
 data "aws_iam_policy" "ebs_csi_policy" {
   arn = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
 }
 
-# 2. Create an IAM Role for the Driver (IRSA)
+# Create an IAM Role for the Driver (IRSA)
 resource "aws_iam_role" "ebs_csi_role" {
   name = "eks-ebs-csi-driver-role"
 
@@ -29,13 +27,13 @@ resource "aws_iam_role" "ebs_csi_role" {
   })
 }
 
-# 3. Attach the Policy to the Role
+#  Attach the Policy to the Role
 resource "aws_iam_role_policy_attachment" "ebs_csi_attach" {
   role       = aws_iam_role.ebs_csi_role.name
   policy_arn = data.aws_iam_policy.ebs_csi_policy.arn
 }
 
-# 4. Install the EKS Addon
+#  Install the EKS Addon
 resource "aws_eks_addon" "ebs_csi" {
   cluster_name             = aws_eks_cluster.eks_cluster.name
   addon_name               = "aws-ebs-csi-driver"
