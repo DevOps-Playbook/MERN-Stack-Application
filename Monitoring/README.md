@@ -58,9 +58,10 @@ Root Module (main.tf)
 
 ### 🚀 Step 3: Install Prometheus
 
-[Prometheus Setup →](https://github.com/DevOps-Playbook/MERN-Stack-Application/blob/main/Monitoring/prometheus/README.md)
+[Prometheus Setup ](https://github.com/DevOps-Playbook/MERN-Stack-Application/blob/main/Monitoring/prometheus/README.md)
 
 ### 🧰 Step 4: Install Grafana Chart
 
-[Grafana Setup →](https://github.com/DevOps-Playbook/MERN-Stack-Application/blob/main/Monitoring/grafana/README.md)
+[Grafana Setup ](https://github.com/DevOps-Playbook/MERN-Stack-Application/blob/main/Monitoring/grafana/README.md)
+
 
