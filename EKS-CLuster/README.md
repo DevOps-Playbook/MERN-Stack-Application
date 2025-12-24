@@ -66,7 +66,7 @@ aws eks --region us-east-1 update-kubeconfig --name project
 
 To verify EKS Cluster Versio
 ```
-aws eks describe-cluster --name project --region us-east-1 --query "cluster.version" --output text
+aws eks describe-cluster --name project --region ap-south-1 --query "cluster.version" --output text
 ```
 
 ### NOTE: Make sure to delete the resources:
