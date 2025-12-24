@@ -27,71 +27,40 @@ Monitoring is the process of keeping an eye on these metrics over time to unders
 - API clients interact with Prometheus through its HTTP API to fetch data, query metrics, and integrate Prometheus with other systems or custom applications.
 
 # 🛠️  Installation & Configurations
-### 📦 Step 1: Create Minikube Cluster - enable Minikube VM 
+### 📦 Step 1: Create A kubernetes Cluster - FOr this demo we will work on EKS 
 
 ```bash
-./cluster.sh
+git clone https://github.com/DevOps-Playbook/MERN-Stack-Application.git
+cd EKS-CLuster/
 ```
 
-### 🧰 Step 2: Install prometheus-community Chart
+### 🧰 Step 2: Deploy the Cluster
 ```bash
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm repo update
-helm install prometheus prometheus-community/prometheus
+Root Module (main.tf)
+├── VPC Module
+│   ├── 1. VPC Resource
+│   ├── 2. Internet Gateway
+│   ├── 3. Public Subnets (2)
+│   ├── 4. Private Subnets (2)
+│   ├── 5. NAT Gateway (in public subnet)
+│   ├── 6. Route Tables (public & private)
+│   └── 7. Route Table Associations
+│
+└── EKS Cluster Module
+    ├── 8. EKS Cluster
+    ├── 9. IAM Role for EKS
+    ├── 10. Security Group for EKS
+    ├── 11. Node Group(s)
+    ├── 12. IAM Role for Node Group
+    ├── 13. Node Group Security Group
+    └── 14. AutoScaling Group for Nodes
 ```
 
-### 🚀 Step 3: Expose prometheus service and test the endpoint
-```bash
-kubectl expose service prometheus-server --type=NodePort --target-port=9090 --name=prometheus-server-ext --port=9090
-kubectl patch svc prometheus-server-ext -p '{"spec":{"ports":[{"port":9090,"targetPort":9090,"nodePort":32123}],"type":"NodePort"}}'
-kubectl get svc
-kubectl port-forward service/prometheus-server-ext 32123:9090 --address 0.0.0.0 &
-```
+### 🚀 Step 3: Install Prometheus
+
+[Prometheus Setup →](https://github.com/DevOps-Playbook/MERN-Stack-Application/blob/main/Monitoring/prometheus/README.md)
 
 ### 🧰 Step 4: Install Grafana Chart
-```bash
-helm repo add grafana https://grafana.github.io/helm-charts
-helm repo update
-helm install grafana grafana/grafana
-```
 
-### 🚀 Step 5: Expose Grafana service and test the endpoint
-```bash
-kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
-kubectl expose service grafana --type=NodePort --target-port=3000 --name=grafana-ext --port=3000
-kubectl patch svc grafana-ext -p '{"spec":{"ports":[{"port":3000,"targetPort":3000,"nodePort":32124}],"type":"NodePort"}}'
-kubectl port-forward service/grafana-ext 32124:3000 --address 0.0.0.0 &
-```
+[Grafana Setup →](https://github.com/DevOps-Playbook/MERN-Stack-Application/blob/main/Monitoring/grafana/README.md)
 
-### ✅ Step 6: Setup Datasources 
-1. Navigate to Grafana Dashboard
-2. Add datasource as **"prometheus"**
-3. URL - prometheus service URL
-
-<img width="1440" alt="Screenshot 2024-12-03 at 4 50 28 PM" src="https://github.com/user-attachments/assets/5ec90f49-6825-4a77-927f-265dec629aa7">
-
-4. Test connection "+"
-
-<img width="1440" alt="Screenshot 2024-12-03 at 4 51 35 PM" src="https://github.com/user-attachments/assets/0302913d-a7d9-4ce1-a587-08357ba4809a">
-
-### ✅ Step 7: Setup Dashboards
-1. Go to Dashboards
-2. Click "import"
-3. Dashboard ID - 15661 --> Kubernetes for Prometheus dashboard
-```bash
-https://grafana.com/grafana/dashboards/15661-1-k8s-for-prometheus-dashboard-20211010/
-```
-4. Dashboard ID - 8171 --> Monitor nodes
-```bash
-https://grafana.com/grafana/dashboards/8171-kubernetes-nodes/
-```
-5. Dashboard ID - 3662 --> Prometheus 2.0
-```bash
-https://grafana.com/grafana/dashboards/3662-prometheus-2-0-overview/
-```
-
-6. There are many dashboards already available we can import as required by the datasources
-
-```bash
-https://grafana.com/grafana/dashboards/?search=prometheus
-```
