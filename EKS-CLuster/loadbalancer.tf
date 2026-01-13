@@ -30,6 +30,9 @@ resource "kubernetes_ingress_v1" "mern_alb" {
     annotations = {
       "alb.ingress.kubernetes.io/scheme"      = "internet-facing"
       "alb.ingress.kubernetes.io/target-type" = "ip"
+      "alb.ingress.kubernetes.io/healthcheck-path" = "/api/health"
+      "alb.ingress.kubernetes.io/healthcheck-port" = "3000"
+      "alb.ingress.kubernetes.io/success-codes"    = "200"
     }
   }
 
