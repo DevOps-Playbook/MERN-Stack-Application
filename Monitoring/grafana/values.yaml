@@ -115,7 +115,7 @@ podAnnotations: {}
 
 # --- POD LABELS (Crucial for connecting to your Terraform ALB) ---
 podLabels: 
-  app: mern-app
+  app: grafana-service
 
 podPortName: grafana
 gossipPortName: gossip
