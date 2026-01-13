@@ -72,6 +72,7 @@ aws eks describe-cluster --name project --region ap-south-1 --query "cluster.ver
 ### NOTE: Make sure to delete the resources:
 
 ```bash
-kubectl patch ingress mern-ingress -n default -p '{"metadata":{"finalizers":[]}}' --type=merge
+kubectl patch ingress ingress -n default -p '{"metadata":{"finalizers":[]}}' --type=merge
 terraform destroy
 ```
+
