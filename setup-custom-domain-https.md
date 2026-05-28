@@ -9,8 +9,8 @@
 3. EC2 instance with a public IP
 
 
-**Step 1: Add DNS A Record in Wix**
-Since devops-playbook.in uses Wix nameservers (ns14.wixdns.net), DNS records must be added in Wix — not Hostinger.
+**Add DNS A Record in Wix**
+Since devops-playbook.in uses Wix nameservers (ns14.wixdns.net), DNS records must be added in Wix.
 
 1. Go to manage.wix.com
 2. Navigate to Settings → Domains → DNS Records
@@ -24,11 +24,11 @@ Since devops-playbook.in uses Wix nameservers (ns14.wixdns.net), DNS records mus
 7. bashnslookup nishant.devops-playbook.in --> **Should return: Address: 3.133.59.141**
 
 
-**Step 2: Open Ports in AWS Security Group**
+**Open Ports in AWS Security Group**
 1. In AWS Console → EC2 → Security Groups → Inbound Rules, add:
 2. TypePortSourceHTTP800.0.0.0/0HTTPS4430.0.0.0/0Custom TCP50020.0.0.0/0SSH22your IP
 
-**Step 3: Install and Configure Nginx**
+**Install and Configure Nginx**
 **1. install nginx**
 ```bash
 sudo apt update && sudo apt install nginx -y
@@ -81,14 +81,14 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-**Step 5: Issue SSL Certificate with Certbot**
+**Issue SSL Certificate with Certbot**
 ```bash
 sudo apt install certbot python3-certbot-nginx -y
 sudo certbot --nginx -d nishant.devops-playbook.in
 ```
 Certbot will automatically update the Nginx config and set up auto-renewal. Certificate expires every 90 days and renews automatically.
 
-**Step 6: Update Frontend Environment**
+**Update Frontend Environment**
 **1. frontend/.env.docker**
 
 ```bash 
@@ -101,7 +101,7 @@ bashMONGODB_URI="mongodb://mongo/wanderlust"
 REDIS_URL="redis://redis:6379"
 ```
 
-**Step 7: Rebuild Docker Containers**
+**Rebuild Docker Containers**
 ```bash
 docker compose down
 docker compose up -d --build
