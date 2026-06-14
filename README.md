@@ -85,6 +85,12 @@ WanderLust is a MERN travel blog website ✈ This project is aimed to learn DevO
    npm run dev
    ```
 
+  > You should see the following on your terminal output on successful setup.
+   >
+   > ```bash
+   > [FRONTEND] Server is running on port 5173
+   > ```
+
 ### Setting up with Docker
 
 1.  **Ensure Docker and Docker Compose are Installed**
