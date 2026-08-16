@@ -10,6 +10,8 @@ WanderLust is a MERN travel blog website ✈ This project is aimed to learn DevO
 
 ### NOTE: Launch an EC2 instance using the m7i-flex.large instance type, which provides 2 vCPUs and 8 GB of memory under the Free Tier.
 
+<img width="649" height="237" alt="Screenshot 2026-08-16 at 1 10 14 PM" src="https://github.com/user-attachments/assets/ba365eeb-81db-4f0d-b86e-fe5faef37795" />
+
 ### Setting up the Backend
 
 1. **Clone the Repository**
