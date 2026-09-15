@@ -101,6 +101,12 @@ Cloud Shell's resources:
 ```bash
 docker-compose down -v
 ```
+* Removes all unused volumes and networks
+
+```bash
+docker system prune -a --volumes -f
+```
+
 
 ## Congratulations 🎉
 
