@@ -2,7 +2,7 @@
 <walkthrough-tutorial-difficulty difficulty="1"></walkthrough-tutorial-difficulty>
 <walkthrough-tutorial-duration duration="15"></walkthrough-tutorial-duration>
 
-# Lab 1: Run WanderLust (MERN Stack) with Docker Compose
+# Run WanderLust (MERN Stack) with Docker Compose
 
 ## Welcome
 
