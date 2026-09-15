@@ -48,14 +48,14 @@ containers together on an internal network.
 This single command builds the backend and frontend images and starts Mongo alongside them:
 
 ```bash
-docker-compose up -d --build
+docker compose up -d
 ```
 
 This can take a couple of minutes on the first run while images build. Check that all
 three containers are up:
 
 ```bash
-docker-compose ps
+docker compose ps
 ```
 
 You should see three services in an `Up`/`running` state.
@@ -88,7 +88,7 @@ While the frontend is open, tail the backend logs in a split terminal to see API
 requests come through as you click around:
 
 ```bash
-docker-compose logs -f backend
+docker compose logs -f backend
 ```
 
 Press `Ctrl+C` to stop tailing.
@@ -99,9 +99,9 @@ When you're done with the lab, tear everything down so it doesn't keep using
 Cloud Shell's resources:
 
 ```bash
-docker-compose down -v
+docker compose down
 ```
-* Removes all unused volumes and networks
+* Removes all unused volumes, images & networks
 
 ```bash
 docker system prune -a --volumes -f
