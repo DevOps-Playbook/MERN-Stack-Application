@@ -34,6 +34,3 @@ services:
         - 6379
     depends_on:
       - mongodb
-
-volumes:
-  data:
