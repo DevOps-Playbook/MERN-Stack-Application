@@ -27,16 +27,13 @@ Cloud Shell should have already cloned this repository for you into
 cd ~/cloudshell_open/MERN-Stack-Application && ls
 ```
 
-You should see `backend/`, `frontend/`, `docker-compose.yaml`, and a few Kubernetes/Helm
-folders we won't need for this lab.
-
 ## Step 2: Set up environment variables
 
 Both services ship with sample env files. Copy them so Docker Compose can pick them up:
 
 ```bash
-cp backend/.env.sample backend/.env
-cp frontend/.env.sample frontend/.env.local
+cat backend/.env.docker
+cat frontend/.env.docker
 ```
 
 <walkthrough-editor-open-file filePath="MERN-Stack-Application/backend/.env">
