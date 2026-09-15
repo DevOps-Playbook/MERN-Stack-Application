@@ -109,11 +109,5 @@ docker-compose down -v
 
 <walkthrough-conclusion-trophy></walkthrough-conclusion-trophy>
 
-You've deployed a full MERN stack application using Docker Compose, entirely inside
-your browser. From here you could:
-
-- Try the Kubernetes manifests in the `kubernetes/` folder
-- Explore the Helm chart in `Helm/`
-- Look at the `Jenkinsfile` to see how this app could be built in CI/CD
-
+You've deployed a full MERN stack application using Docker Compose
 Ready for the next lab? Head back to the course site to continue.
