@@ -1,5 +1,0 @@
-apiVersion: v2
-name: helm
-description: A Helm chart for deploying frontend, backend, and MongoDB services
-version: 0.1.0
-
