@@ -10,9 +10,6 @@ COPY . .
 # Install packages
 RUN npm install
 
-# Rename environment file
-COPY .env.docker .env
-
 # Expose app port
 EXPOSE 5000
 
