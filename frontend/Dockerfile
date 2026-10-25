@@ -10,9 +10,6 @@ COPY . .
 # Install dependencies
 RUN npm install
 
-# Rename env file
-COPY .env.docker .env.local
-
 # Expose the port your app runs on
 EXPOSE 5173
 
